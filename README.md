@@ -83,4 +83,4 @@ Postupně zpracuj tyto kroky:
     - Pokud uživatel zmáčkne pouze Enter, jako výchozí hodnota se použij jako výchozí sazbu 20&nbsp;%.
     - Uprav název výstupního souboru tak, aby reflektoval zadanou sazbu daně.
 
-## Dotazy?
+
