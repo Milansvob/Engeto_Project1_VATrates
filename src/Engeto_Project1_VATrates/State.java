@@ -5,9 +5,9 @@ public class State {
     private String state;
     private Integer vatStandardRate;
     private Double vatReducedRate;
-    private Boolean vatSpecialRate;
+    private Boolean isVatSpecialRate;
 
-    public State(String stateAbbrevStr, String stateStr, String vatStandardRateStr, String vatReducedRateStr, String vatSpecialRateStr) throws StateException {
+    public State(String stateAbbrevStr, String stateStr, String vatStandardRateStr, String vatReducedRateStr, String isVatSpecialRateStr) throws StateException {
         this.stateAbbrev = stateAbbrevStr;
         this.state = stateStr;
         try {
@@ -20,9 +20,9 @@ public class State {
         }catch(NumberFormatException ex){
             throw new StateException(" / Wrong format of VAT reduced rate / " + ex.getLocalizedMessage());
         }
-
-        if ((vatSpecialRateStr.toLowerCase().equals("true")) || (vatSpecialRateStr.toLowerCase().equals("false"))) {
-            this.vatSpecialRate = Boolean.parseBoolean(vatSpecialRateStr);
+        String isVatSpecialRateStrLower = isVatSpecialRateStr.toLowerCase();
+        if ((isVatSpecialRateStrLower.equals("true")) || (isVatSpecialRateStrLower.equals("false"))) {
+            this.isVatSpecialRate = Boolean.parseBoolean(isVatSpecialRateStr);
         }
         else throw new StateException(" / Wrong format of VAT special rate");
         }
@@ -60,11 +60,15 @@ public class State {
     }
 
     public Boolean isVatSpecialRate() {
-        return vatSpecialRate;
+        return isVatSpecialRate;
     }
 
-    public void setVatSpecialRate(Boolean vatSpecialRate) {
-        this.vatSpecialRate = vatSpecialRate;
+    public void setIsVatSpecialRate(Boolean isVatSpecialRate) {
+        this.isVatSpecialRate = isVatSpecialRate;
     }
 
+    @Override
+    public String toString() {
+        return state + "(" + stateAbbrev + "):" + vatStandardRate + "%";
+    }
 }

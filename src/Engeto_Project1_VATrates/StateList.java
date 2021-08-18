@@ -2,15 +2,13 @@ package Engeto_Project1_VATrates;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class StateList {
 
     public static final String DELIMITER = "\t";
 
-    Map<Integer, State> stateList = new HashMap();
+    private ArrayList<State> stateList = new ArrayList<>();
 
     public static StateList importFromTextFile(String fileName) throws StateException {
         StateList list = new StateList();
@@ -20,8 +18,8 @@ public class StateList {
                 // Parse of text into String[]items according DELIMITER
                 String[] items = inputLine.split(DELIMITER);
                 State state = new State(items[0],items[1],items[2],items[3],items[4]);
-                list.putState(state.getVatStandardRate(), state);
-                // System.out.println(inputLine);
+                list.addState(state);
+                //System.out.println(inputLine);
             }
         } catch (FileNotFoundException ex){
             throw new StateException("Soubor " + fileName + " nenalezen:" + ex.getLocalizedMessage());
@@ -29,11 +27,13 @@ public class StateList {
         return list;
     }
 
-    public State getStateList(Integer i) {
+    public State getDemanedState(int i) {
         return stateList.get(i);
     }
 
-    public void putState(Integer getVatStandardRate,State state) {
-        stateList.put(getVatStandardRate,state);
-    }
+    public void addState(State state) {stateList.add(state); }
+
+    public List<State> getStateList() {return stateList; }
+
+
 }
