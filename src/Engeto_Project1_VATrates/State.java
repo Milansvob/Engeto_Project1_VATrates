@@ -1,5 +1,7 @@
 package Engeto_Project1_VATrates;
 
+import java.sql.RowId;
+
 public class State {
     private String stateAbbrev;
     private String state;
@@ -24,7 +26,7 @@ public class State {
         if ((isVatSpecialRateStrLower.equals("true")) || (isVatSpecialRateStrLower.equals("false"))) {
             this.isVatSpecialRate = Boolean.parseBoolean(isVatSpecialRateStr);
         }
-        else throw new StateException(" / Wrong format of VAT special rate");
+        else throw new StateException(" / Wrong format of is VAT special rate - type boolean");
         }
 
     public String getStateAbbrev() {

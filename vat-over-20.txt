@@ -1,0 +1,17 @@
+HU	Hungary	27
+SE	Sweden	25
+HR	Croatia	25
+DK	Denmark	25
+GR	Greece	24
+FI	Finland	24
+PT	Portugal	23
+PL	Poland	23
+IE	Ireland	23
+SI	Slovenia	22
+IT	Italy	22
+NL	Netherlands	21
+LV	Latvia	21
+LT	Lithuania	21
+ES	Spain	21
+CZ	Czech Republic	21
+BE	Belgium	21
