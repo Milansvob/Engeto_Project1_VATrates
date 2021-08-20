@@ -50,9 +50,12 @@ public class Main {
 
         //Report of states with VAT rate 20% or higher or use special VAT rate:, print into console.
         System.out.print("VAT rate 20% or lower or use special VAT rate: " );
-        for (State sum: summary.getStateList() ) {
-            if (sum.getVatStandardRate() <= VAT_STANDARD_LIMIT) {
-                System.out.print(sum.getStateAbbrev() + ", ");
+        for (int i = 0; i<summary.getStateList().size() ; i++ ) {
+            if ((summary.getDemanedState(i).getVatStandardRate() <= VAT_STANDARD_LIMIT) && (i < summary.getStateList().size()-1)) {
+                System.out.print(summary.getDemanedState(i).getStateAbbrev() + ", ");
+            }
+            if ((summary.getDemanedState(i).getVatStandardRate() <= VAT_STANDARD_LIMIT) && (i == summary.getStateList().size()-1)) {
+                System.out.print(summary.getDemanedState(i).getStateAbbrev() + ". ");
             }
         }
 
@@ -85,6 +88,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        //Row with equal sign , print into console.
         System.out.println("\n" + "====================");
 
         //Download states form VAT_EU_CSV.
